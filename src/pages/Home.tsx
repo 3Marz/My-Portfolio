@@ -7,7 +7,7 @@ import Projects from "../components/Projects"
 export default function Home() {
 
 	return (
-		<div className="text-orange-400 w-full h-[100dvh] overflow-scroll bg-orange-200 mix-blend-difference">
+		<div className="text-orange-400 w-full h-[100dvh] overflow-scroll bg-orange-200 mix-blend-multiply">
 			<Header />
 
 			<Wave 

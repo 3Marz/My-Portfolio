@@ -19,6 +19,7 @@ export default function TechIcon({icon, index, name}: TechIconProps) {
 		},
 	}), {
 			rootMargin: '0% 0%',
+			once: true
 	})
 	
 	const [{y}, upApi] = useSpring(()=>({
