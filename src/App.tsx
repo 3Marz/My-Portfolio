@@ -3,8 +3,6 @@ import { useTransition, animated, useTrail, SpringConfig } from '@react-spring/w
 
 import Home from './pages/Home';
 
-import styles from "./cursor.module.css"
-
 const fast: SpringConfig = { tension: 1200, friction: 40 };
 const slow: SpringConfig = { mass: 10, tension: 200, friction: 50 };
 const trans = (x: number, y: number) =>
@@ -15,6 +13,8 @@ function App() {
 
 	const [trail, api] = useTrail(3, (i) => ({
 		xy: [0, 0],
+		size: 1,
+		rad: "50%",
 		config: i == 0 ? fast : slow
 	}));
 
@@ -27,6 +27,12 @@ function App() {
 	
 	const handleMouseMove = (e: MouseEvent) => {
 		api.start({xy: [e.clientX, e.clientY]})
+		api.start({size: 1})
+		api.start({rad: "50%"})
+		if(typeof(e.target.className) == "string" && e.target.className.includes("project")) {
+				api.start({size: 3})
+				api.start({rad: "2%"})
+			}
 	}
 	window.addEventListener("mousemove", handleMouseMove)
 		
@@ -35,12 +41,16 @@ function App() {
 			<svg style={{ position: "absolute", width: 0, height: 0 }}>
 	      <filter id="goo">
 					<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="25" />
-	        <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 25 -7" />
+	        <feColorMatrix values={`1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 30 -7`} />
 				</filter>
 			</svg>
-			<div className={styles.hooksMain} >
+			<div className="hooksMain" >
 				{trail.map((props, index) => (
-					 <animated.span key={index} style={{ transform: props.xy.to(trans) }} />
+					 <animated.span key={index} style={{ 
+						transform: props.xy.to(trans), 
+						scale: props.size,
+						borderRadius: props.rad
+					}} />
 				))}
 			</div>
 			<div>
@@ -50,31 +60,6 @@ function App() {
 			</Routes>	
 		</animated.div>
 	))
-	//return (
-	//	<>
-	//	{transitions((props, item) => (
-	//			<animated.div className="absolute" style={props}>
-	//				<Routes location={item}>
-	//					<Route path='/' Component={Home} />
-	//					<Route path='/projects' Component={Projects} />
-	//				</Routes>	
-	//			</animated.div>
-	//		))}
-	//		<svg style={{ position: "absolute", width: 0, height: 0 }}>
-	//       <filter id="goo">
-	//         <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="25" />
-	//         <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 25 -7" />
-	//       </filter>
-	//     </svg>
-	//     <div ref={ref} className={styles.hooksMain} onMouseMove={handleMouseMove}>
-	//			{trail.map((props, index) => (
-	//         <animated.span key={index} style={{ transform: props.xy.to(trans) }} />
-	//       ))}
-	//     </div>
-	//
-	//
-	//	</>
-	//)
 }
 
 export default App
