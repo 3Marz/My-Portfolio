@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { useTransition, animated, useTrail, SpringConfig } from '@react-spring/web';
 
 import Home from './pages/Home';
-import Projects from './pages/Projects';
 
 import styles from "./cursor.module.css"
 
@@ -48,7 +47,6 @@ function App() {
 			</div>
 			<Routes location={item}>
 				<Route path='/' Component={Home} />
-				<Route path='/projects' Component={Projects} />
 			</Routes>	
 		</animated.div>
 	))
