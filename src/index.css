@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: "IBM-Plex-Serif400";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("../public/fonts/IBMPlexSerif-Regular.ttf");
+	}
+	@font-face {
+		font-family: "IBM-Plex-Serif700";
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url("../public/fonts/IBMPlexSerif-Bold.ttf");
+	}
+}
+
+* {cursor: none;}
+
+.sweep-dark {
+	background: linear-gradient(45deg, #fb923c, #fb923c) no-repeat right bottom / 0 5px;
+}
+.sweep-light {
+	background: linear-gradient(45deg, #ffedd5, #ffedd5) no-repeat right bottom / 0 5px;
+}
+
+.hover-sweep {
+	
+  transition: background-size 350ms;
+}
+.hover-sweep:where(:hover, :focus-visible) {
+	background-size: 100% 5px;
+	background-position-x: left;
+}
+/*fed7aa*/
+.layer-header {
+	background: url("../public/wave2-haikei.svg");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	transform: translateY(1px);
+	width: 100%;
+	aspect-ratio: 960/300;
+}
+
