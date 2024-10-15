@@ -4,16 +4,16 @@ import { useGesture } from "@use-gesture/react"
 
 type TechIconProps = {
 	children: ReactNode
-	index: number
+	key: number
 	name: string
 }
 
-export default function TechIcon({children, index, name}: TechIconProps) {
+export default function TechIcon({children, key, name}: TechIconProps) {
 	
 	const [ref, anim] = useInView(()=>({
 		from: {
 			opacity: 0,
-			y: index * 10
+			y: key * 10
 		},
 		to: {
 			opacity: 1,

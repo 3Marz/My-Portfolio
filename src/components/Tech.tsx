@@ -4,6 +4,18 @@ import { SiPython, SiGit, SiCss3, SiJavascript, SiSqlite, SiTypescript, SiHtml5,
 
 const iconSize = 60;
 
+const icons = [
+	{ name: "react", icon: <SiReact size={iconSize} />},
+	{ name: "Tailwind", icon: <SiTailwindcss size={iconSize} />},
+	{ name: "TypeScript", icon: <SiTypescript size={iconSize} />},
+	{ name: "JavaScript", icon: <SiJavascript size={iconSize} />},
+	{ name: "Sqlite", icon: <SiSqlite size={iconSize} />},
+	{ name: "Git", icon: <SiGit size={iconSize} />},
+	{ name: "Html", icon: <SiHtml5 size={iconSize} />},
+	{ name: "Css", icon: <SiCss3 size={iconSize} />},
+	{ name: "Python", icon: <SiPython size={iconSize} />},
+]
+
 export default function Tech() {
 	
 	const [ref, anim] = useInView(()=>({
@@ -24,15 +36,9 @@ export default function Tech() {
 		<div className="h-fit px-[15vw] text-orange-100 prose-lg bg-orange-400 font-ibm-normal md:prose-xl lg:prose-2xl prose-h1:font-ibm-bold prose-p:font-ibm-normal">
 			<animated.h1 className="hover-sweep sweep-light w-fit" ref={ref} style={anim}>Tech I use:</animated.h1>
 			<div className="mx-[5vw] flex flex-wrap gap-x-11 gap-y-3">
-				<TechIcon name="React" index={1}><SiReact size={iconSize}/></TechIcon>
-				<TechIcon name="Tailwind"index={2}><SiTailwindcss size={iconSize}/></TechIcon>
-				<TechIcon name="TypeScript"index={3}><SiTypescript size={iconSize}/></TechIcon>
-				<TechIcon name="JavaScript"index={4}><SiJavascript size={iconSize}/></TechIcon>
-				<TechIcon name="Sqlite"index={5}><SiSqlite size={iconSize}/></TechIcon>
-				<TechIcon name="Git"index={6}><SiGit size={iconSize}/></TechIcon>
-				<TechIcon name="Html"index={7}><SiHtml5 size={iconSize}/></TechIcon>
-				<TechIcon name="Css"index={8}><SiCss3 size={iconSize}/></TechIcon>
-				<TechIcon name="Python"index={9}><SiPython size={iconSize}/></TechIcon>
+				{icons.map(({name, icon}, i) => {
+					return <TechIcon key={i} name={name}>{icon}</TechIcon>
+				})}
 			</div>
 		</div>
 	)
