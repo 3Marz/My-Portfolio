@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 export type ProjectType = {
 	name: string
 	desc: string
-	photo: string | null
+	photo: string | undefined
 	techUsed: TechnologyType[] | null
 }
 
