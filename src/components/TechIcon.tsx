@@ -1,14 +1,12 @@
-import { ReactNode } from "react"
 import { animated, useInView, useSpring } from "@react-spring/web"
 import { useGesture } from "@use-gesture/react"
+import { TechnologyType } from "../types"
 
-type TechIconProps = {
-	children: ReactNode
+type TechIconProps = TechnologyType & {
 	key: number
-	name: string
 }
 
-export default function TechIcon({children, key, name}: TechIconProps) {
+export default function TechIcon({icon, key, name}: TechIconProps) {
 	
 	const [ref, anim] = useInView(()=>({
 		from: {
@@ -43,7 +41,7 @@ export default function TechIcon({children, key, name}: TechIconProps) {
 	return (
 		<animated.div className="max-w-14" ref={ref} style={anim}>
 			<animated.div style={{ y }} className="text-center flex flex-col items-center">
-				{children}
+				{icon}
 			</animated.div>
 			<animated.b className="flex justify-center" style={{ opacity }}>{name}</animated.b>
 		</animated.div>
