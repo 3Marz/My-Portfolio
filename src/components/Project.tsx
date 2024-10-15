@@ -18,22 +18,25 @@ export default function Project({name, desc, photo, techUsed, index}:ProjectProp
 		},
 	}), {
 			rootMargin: '0% 0%',
+			once: true
 		})
 
 	return (
-		<animated.div className="flex flex-col aspect-[4/3] space-y-2 p-2" ref={ref} style={anim}>
+		<animated.a className="project flex flex-col aspect-[4/3] pb-2 space-y-2 ring-orange-400 hover:ring-2 rounded-lg transition" ref={ref} style={anim}>
 			{/*<img className="aspect-video bg-gray-200" src={photo}/>*/}
-			<div className="aspect-video rounded-lg bg-gray-700"></div>
+			<div className="project aspect-video rounded-lg bg-gray-700"></div>
 
-			<p className="font-ibm-normal text-xl drop-shadow">
-				<b className="font-ibm-bold text-lg">{name} :</b> {desc}
-			</p>
+			<div className="project space-y-2 px-4">
+				<p className="project font-ibm-normal text-xl drop-shadow">
+					<b className="project font-ibm-bold text-lg">{name} :</b> {desc}
+				</p>
 
-			<div className="flex items-center gap-4">
-				{techUsed?.map((tech, i)=> {
-					return <div key={i}>{tech.icon}</div>
-				})}
+				<div className="project flex items-center gap-4">
+					{techUsed?.map((tech, i)=> {
+						return <div key={i}>{tech.icon}</div>
+					})}
+				</div>
 			</div>
-		</animated.div>
+		</animated.a>
 	)
 }
