@@ -31,7 +31,7 @@ function App() {
 	window.addEventListener("mousemove", handleMouseMove)
 		
 	return transitions((props, item) => (
-		<animated.div className="absolute" style={props}>
+		<animated.div className="absolute w-full" style={props}>
 			<svg style={{ position: "absolute", width: 0, height: 0 }}>
 	      <filter id="goo">
 					<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="25" />
