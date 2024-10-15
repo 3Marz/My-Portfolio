@@ -38,7 +38,7 @@ export default function Tech() {
 			<animated.h1 className="hover-sweep sweep-light w-fit" ref={ref} style={anim}>Tech I use:</animated.h1>
 			<div className="mx-[5vw] flex flex-wrap gap-x-11 gap-y-3">
 				{icons.map(({name, icon}, i) => {
-					return <TechIcon key={i} name={name} icon={icon} />
+					return <TechIcon key={i} index={i} name={name} icon={icon} />
 				})}
 			</div>
 		</div>

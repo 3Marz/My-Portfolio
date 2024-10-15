@@ -3,15 +3,15 @@ import { useGesture } from "@use-gesture/react"
 import { TechnologyType } from "../types"
 
 type TechIconProps = TechnologyType & {
-	key: number
+	index: number
 }
 
-export default function TechIcon({icon, key, name}: TechIconProps) {
+export default function TechIcon({icon, index, name}: TechIconProps) {
 	
 	const [ref, anim] = useInView(()=>({
 		from: {
 			opacity: 0,
-			y: key * 10
+			y: index * 2
 		},
 		to: {
 			opacity: 1,
@@ -19,9 +19,8 @@ export default function TechIcon({icon, key, name}: TechIconProps) {
 		},
 	}), {
 			rootMargin: '0% 0%',
-			once: true
 	})
-
+	
 	const [{y}, upApi] = useSpring(()=>({
 		y: 25,
 		config: {mass: 10, friction: 100, tension: 1200}
