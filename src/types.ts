@@ -4,6 +4,7 @@ export type ProjectType = {
 	name: string
 	desc: string
 	photo: string | undefined
+	url: string
 	techUsed: TechnologyType[] | null
 }
 
