@@ -28,11 +28,11 @@ export default function Projects() {
 					return <Project key={i} index={i} {...project}/>
 				})}
 				<div className="h-full flex flex-col">
-					<a href="https://github.com/3Marz/" className="project hover:ring-2 ring-orange-400 h-full rounded-lg transition text-2xl min-h-24 font-ibm-bold flex justify-center items-center place-items-center">
+					<a target="_blank" href="https://github.com/3Marz/" className="project link hover:ring-2 ring-orange-400 h-full rounded-lg transition text-lg md:text-xl lg:text-2xl min-h-24 font-ibm-bold flex justify-center items-center place-items-center">
 						More on my <FaGithub className="mx-2"/> github
 						<IoIosArrowForward size={28}/>
 					</a>
-					<a className="project hover:ring-2 ring-orange-400 h-full rounded-lg transition text-2xl min-h-24 font-ibm-bold flex justify-center items-center place-items-center">
+					<a target="_blank" href="https://3mar.itch.io/" className="project link hover:ring-2 ring-orange-400 h-full rounded-lg transition text-lg md:text-xl lg:text-2xl min-h-24 font-ibm-bold flex justify-center items-center place-items-center">
 						More on my <FaItchIo className="mx-2" /> itch.io
 						<IoIosArrowForward size={28}/>
 					</a>
