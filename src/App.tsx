@@ -12,10 +12,11 @@ function App() {
 	const location = useLocation();
 
 	const [trail, api] = useTrail(3, (i) => ({
-		xy: [0, 0],
+		xy: [100, 100],
 		size: 1,
 		rad: "50%",
-		config: i == 0 ? fast : slow
+		config: i == 0 ? fast : slow,
+		delay: 10
 	}));
 
 	const transitions = useTransition(location, {
@@ -29,19 +30,25 @@ function App() {
 		api.start({xy: [e.clientX, e.clientY]})
 		api.start({size: 1})
 		api.start({rad: "50%"})
-		if(typeof(e.target.className) == "string" && e.target.className.includes("project")) {
+		if(typeof(e.target.className) == "string") {
+			if(e.target.className.includes("project")) {
 				api.start({size: 3})
+			}
+			if(e.target.className.includes("link")) {
 				api.start({rad: "2%"})
 			}
+		} else {
+			api.start({rad: "0%"})
+		}
 	}
 	window.addEventListener("mousemove", handleMouseMove)
 		
 	return transitions((props, item) => (
-		<animated.div className="absolute w-full" style={props}>
+		<animated.div className="w-full" style={props}>
 			<svg style={{ position: "absolute", width: 0, height: 0 }}>
 	      <filter id="goo">
 					<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="25" />
-	        <feColorMatrix values={`1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 30 -7`} />
+	        <feColorMatrix values={`1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 30 -9`} />
 				</filter>
 			</svg>
 			<div className="hooksMain" >
@@ -52,8 +59,6 @@ function App() {
 						borderRadius: props.rad
 					}} />
 				))}
-			</div>
-			<div>
 			</div>
 			<Routes location={item}>
 				<Route path='/' Component={Home} />
