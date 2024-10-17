@@ -21,11 +21,11 @@ export default function Projects() {
 		})
 
 	return (
-		<div className="h-fit px-[15vw] mt-10 space-y-8 text-orange-400">
-			<animated.h1 className="sweep-dark hover-sweep w-fit text-6xl font-ibm-bold" ref={ref} style={anim}>My Projects:</animated.h1>
+		<animated.div ref={ref} style={anim} className="h-fit px-[15vw] mt-10 space-y-8 text-orange-400">
+			<h1 className="sweep-dark hover-sweep w-fit text-6xl font-ibm-bold">My Projects:</h1>
 			<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
 				{projects.map((project, i) => {
-					return <Project key={i} index={i} {...project}/>
+					return <Project key={i} {...project}/>
 				})}
 				<div className="h-full flex flex-col">
 					<a target="_blank" href="https://github.com/3Marz/" className="project link hover:ring-2 ring-orange-400 h-full rounded-lg transition text-lg md:text-xl lg:text-2xl min-h-24 font-ibm-bold flex justify-center items-center place-items-center">
@@ -38,6 +38,6 @@ export default function Projects() {
 					</a>
 				</div>
 			</div>
-		</div>
+		</animated.div>
 	)
 }
