@@ -31,11 +31,12 @@ function App() {
 		api.start({xy: [e.clientX, e.clientY]})
 		api.start({size: 1})
 		api.start({rad: "50%"})
-		if(typeof(e.target.className) == "string") {
-			if(e.target.className.includes("project")) {
+		const target = e.target as HTMLElement
+		if(typeof(target.className) == "string") {
+			if(target.className.includes("project")) {
 				api.start({size: 3})
 			}
-			if(e.target.className.includes("link")) {
+			if(target.className.includes("link")) {
 				api.start({rad: "2%"})
 			}
 		} else {
