@@ -78,9 +78,3 @@
 	/*pointer-events: none;*/
 }
 
-.project {
-}
-
-.project:hover ~ .hooksMain>span {
-	background: blue;
-}
