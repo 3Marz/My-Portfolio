@@ -48,7 +48,7 @@ export const projects : ProjectType[] = [
 	},
 	{ 
 		name:"Jutris", 
-		desc:"A very juicy tetris clone", 
+		desc:"A very satisfying and juicy tetris clone", 
 		photo: "/portfolio/projectScreenshots/jutris.png",
 		url: "https://github.com/3Marz/Jutris",
 		techUsed: [
